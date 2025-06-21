@@ -1,0 +1,179 @@
+2025-06-21T17:37:28.778+05:30  INFO 21897 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Starting StreamerOrderCreationServiceApplication using Java 24 with PID 21897 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-creation-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-creation-service)
+2025-06-21T17:37:28.778+05:30 DEBUG 21897 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-21T17:37:28.778+05:30  INFO 21897 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-21T17:37:29.014+05:30  INFO 21897 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-21T17:37:29.019+05:30  INFO 21897 --- [order-creation-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-21T17:37:29.019+05:30  INFO 21897 --- [order-creation-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-21T17:37:29.034+05:30  INFO 21897 --- [order-creation-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-21T17:37:29.034+05:30  INFO 21897 --- [order-creation-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 239 ms
+2025-06-21T17:37:29.161+05:30  INFO 21897 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-21T17:37:29.165+05:30  INFO 21897 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Started StreamerOrderCreationServiceApplication in 0.534 seconds (process running for 0.626)
+2025-06-21T17:42:41.179+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-21T17:42:41.179+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-21T17:42:41.180+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-21T17:42:41.215+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] c.m.s.service.OrderEventProducer         : Publishing order: 219bbd71-a28c-4e07-bf11-57efe8eaa9e4 to topic: orders-raw
+2025-06-21T17:42:41.223+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-creation-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 10
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 3
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2025-06-21T17:42:41.231+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T17:42:41.262+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-creation-service-producer-1] Instantiated an idempotent producer.
+2025-06-21T17:42:41.274+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T17:42:41.274+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T17:42:41.274+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750507961274
+2025-06-21T17:42:41.275+05:30 DEBUG 21897 --- [order-creation-service] [http-nio-8080-exec-1] o.s.k.core.DefaultKafkaProducerFactory   : Created new Producer: CloseSafeProducer [delegate=org.apache.kafka.clients.producer.KafkaProducer@4a332e72]
+2025-06-21T17:42:41.376+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=order-creation-service-producer-1] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21T17:42:41.376+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=order-creation-service-producer-1] ProducerId set to 4 with epoch 0
+2025-06-21T17:42:41.405+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: 219bbd71-a28c-4e07-bf11-57efe8eaa9e4 to topic: orders-raw at offset: 9
+2025-06-21T17:43:57.055+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-3] c.m.s.service.OrderEventProducer         : Publishing order: 3497bac8-b813-4081-add2-027093241a5e to topic: orders-raw
+2025-06-21T17:43:57.073+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: 3497bac8-b813-4081-add2-027093241a5e to topic: orders-raw at offset: 10
+2025-06-21T17:48:24.832+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-5] c.m.s.service.OrderEventProducer         : Publishing order: 62439d55-0249-44c8-a0ba-e571e0914279 to topic: orders-raw
+2025-06-21T17:48:24.849+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: 62439d55-0249-44c8-a0ba-e571e0914279 to topic: orders-raw at offset: 11
+2025-06-21T17:49:32.733+05:30  INFO 21897 --- [order-creation-service] [http-nio-8080-exec-7] c.m.s.service.OrderEventProducer         : Publishing order: bb9617c6-9e16-4e04-9c72-d0a595c2a73c to topic: orders-raw
+2025-06-21T17:49:32.748+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: bb9617c6-9e16-4e04-9c72-d0a595c2a73c to topic: orders-raw at offset: 12
+2025-06-21T17:57:04.063+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node -1 disconnected.
+2025-06-21T17:57:04.064+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:04.064+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight METADATA request with correlation id 15 due to node 1 being disconnected (elapsed time since creation: 0ms, elapsed time since send: 0ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:04.177+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:04.178+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 16 due to node 1 being disconnected (elapsed time since creation: 0ms, elapsed time since send: 0ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:04.418+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:04.419+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 17 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:04.822+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:04.822+05:30  WARN 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2025-06-21T17:57:05.230+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:05.230+05:30  WARN 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2025-06-21T17:57:06.166+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:06.167+05:30  WARN 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2025-06-21T17:57:07.168+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:07.169+05:30  WARN 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2025-06-21T17:57:08.170+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:08.171+05:30  WARN 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2025-06-21T17:57:09.173+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:09.174+05:30  WARN 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2025-06-21T17:57:10.175+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:10.175+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 18 due to node 1 being disconnected (elapsed time since creation: 0ms, elapsed time since send: 0ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:11.178+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:11.178+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 19 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:12.181+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:12.181+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 20 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:13.183+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:13.184+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 21 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:14.187+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:14.188+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 22 due to node 1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:15.190+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:15.190+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 23 due to node 1 being disconnected (elapsed time since creation: 0ms, elapsed time since send: 0ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:16.194+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:16.195+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 24 due to node 1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:17.196+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:17.197+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 25 due to node 1 being disconnected (elapsed time since creation: 0ms, elapsed time since send: 0ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:18.200+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:18.201+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 26 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:19.203+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:19.203+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 27 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:20.207+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:20.208+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 28 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:21.210+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:21.210+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 29 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:57:22.212+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Node 1 disconnected.
+2025-06-21T17:57:22.213+05:30  INFO 21897 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=order-creation-service-producer-1] Cancelled in-flight API_VERSIONS request with correlation id 30 due to node 1 being disconnected (elapsed time since creation: 0ms, elapsed time since send: 0ms, throttle time: 0ms, request timeout: 30000ms)
+2025-06-21T17:59:05.238+05:30  INFO 21897 --- [order-creation-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-21T17:59:07.250+05:30  INFO 21897 --- [order-creation-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-21T17:59:07.252+05:30  INFO 21897 --- [order-creation-service] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-creation-service-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-06-21T17:59:07.257+05:30  INFO 21897 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T17:59:07.258+05:30  INFO 21897 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T17:59:07.258+05:30  INFO 21897 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T17:59:07.258+05:30  INFO 21897 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T17:59:07.258+05:30  INFO 21897 --- [order-creation-service] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for order-creation-service-producer-1 unregistered

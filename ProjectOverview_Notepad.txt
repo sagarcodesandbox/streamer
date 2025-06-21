@@ -1,0 +1,27 @@
+kafka-streams-ecommerce/
+├── docker-compose.yml              # Kafka 4.0 with Kraft setup
+├── order-creation-service/         # Microservice 1: REST API to produce raw orders
+│   ├── pom.xml
+│   ├── src/main/java/com/example/ordercreation/
+│   │   ├── OrderCreationServiceApplication.java
+│   │   ├── config/KafkaProducerConfig.java
+│   │   ├── controller/OrderController.java
+│   │   ├── model/Order.java
+│   │   └── service/OrderEventProducer.java
+│   └── src/main/resources/application.yml
+├── order-processing-streams-service/ # Microservice 2: Kafka Streams processing
+│   ├── pom.xml
+│   ├── src/main/java/com/example/orderprocessing/
+│   │   ├── OrderProcessingStreamsApplication.java
+│   │   ├── config/KafkaStreamsConfig.java
+│   │   ├── model/Order.java
+│   │   ├── model/ProcessedOrder.java
+│   │   └── serde/JsonSerde.java
+│   └── src/main/resources/application.yml
+└── order-consumer-service/         # Microservice 3: Consumes processed orders
+    ├── pom.xml
+    ├── src/main/java/com/example/orderconsumer/
+    │   ├── OrderConsumerServiceApplication.java
+    │   ├── consumer/ProcessedOrderConsumer.java
+    │   └── model/ProcessedOrder.java
+    └── src/main/resources/application.yml

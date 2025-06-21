@@ -1,0 +1,33 @@
+# application.yml (order-creation-service)
+server:
+  port: 8080 # Unique port for this microservice
+
+spring:
+  application:
+    name: order-creation-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        acks: all # Ensure high durability
+        retries: 3 # Retry failed sends
+        batch.size: 16384 # Batch size for efficiency
+        linger.ms: 10 # Linger for small batches
+
+app:
+  kafka:
+    topics:
+      orders-raw: orders-raw # Define topic name
+
+logging:
+  level:
+    root: INFO
+    com.mobox: DEBUG
+    org.apache.kafka: INFO
+    org.springframework.kafka: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: "logs/creation-service.log"

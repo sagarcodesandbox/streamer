@@ -1,0 +1,53 @@
+# docker-compose.yml (in kafka-streams-ecommerce/)
+version: '3.8'
+
+services:
+  broker:
+    image: apache/kafka:4.0.0
+    container_name: kafka-broker
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    volumes:
+      - ./kafka-data:/tmp/kraft-data
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://broker:9092,CONTROLLER://broker:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@broker:9093
+      KAFKA_LOG_DIRS: /tmp/kraft-data/logs
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_CLUSTER_ID: 'hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j' # REPLACE WITH YOUR GENERATED ID OR USE THIS ONE
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+    command:
+      - "bash"
+      - "-c"
+      - |
+        # Generate server.properties from environment variables
+        cat > /tmp/server.properties << EOF
+        node.id=$${KAFKA_NODE_ID}
+        process.roles=$${KAFKA_PROCESS_ROLES}
+        listeners=$${KAFKA_LISTENERS}
+        advertised.listeners=$${KAFKA_ADVERTISED_LISTENERS}
+        controller.quorum.voters=$${KAFKA_CONTROLLER_QUORUM_VOTERS}
+        log.dirs=$${KAFKA_LOG_DIRS}
+        auto.create.topics.enable=$${KAFKA_AUTO_CREATE_TOPICS_ENABLE}
+        controller.listener.names=$${KAFKA_CONTROLLER_LISTENER_NAMES}
+        listener.security.protocol.map=$${KAFKA_LISTENER_SECURITY_PROTOCOL_MAP}
+        num.network.threads=3
+        num.io.threads=8
+        socket.send.buffer.bytes=102400
+        socket.receive.buffer.bytes=102400
+        socket.request.max.bytes=104857600
+        log.retention.hours=168
+        log.segment.bytes=1073741824
+        log.retention.check.interval.ms=300000
+        EOF
+        
+        if [ ! -f /tmp/kraft-data/meta.properties ]; then
+          /opt/kafka/bin/kafka-storage.sh format -t $${KAFKA_CLUSTER_ID} -c /tmp/server.properties --standalone
+        fi;
+        exec /opt/kafka/bin/kafka-server-start.sh /tmp/server.properties
+    restart: always

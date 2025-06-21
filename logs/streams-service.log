@@ -1,0 +1,1214 @@
+2025-06-21T17:30:36.349+05:30  INFO 21387 --- [order-processing-streams-service] [main] OrderProcessingStreamsServiceApplication : Starting StreamerOrderProcessingStreamsServiceApplication using Java 24 with PID 21387 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-processing-streams-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer)
+2025-06-21T17:30:36.349+05:30 DEBUG 21387 --- [order-processing-streams-service] [main] OrderProcessingStreamsServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-21T17:30:36.349+05:30  INFO 21387 --- [order-processing-streams-service] [main] OrderProcessingStreamsServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-21T17:30:36.595+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-06-21T17:30:36.599+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-21T17:30:36.599+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-21T17:30:36.610+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-21T17:30:36.610+05:30  INFO 21387 --- [order-processing-streams-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 249 ms
+2025-06-21T17:30:36.654+05:30  INFO 21387 --- [order-processing-streams-service] [main] org.apache.kafka.streams.StreamsConfig   : StreamsConfig values: 
+	acceptable.recovery.lag = 10000
+	application.id = order-processing-app-id
+	application.server = 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	buffered.records.per.partition = 1000
+	built.in.metrics.version = latest
+	cache.max.bytes.buffering = 10485760
+	client.id = 
+	commit.interval.ms = 100
+	connections.max.idle.ms = 540000
+	default.client.supplier = class org.apache.kafka.streams.processor.internals.DefaultKafkaClientSupplier
+	default.deserialization.exception.handler = class org.apache.kafka.streams.errors.LogAndFailExceptionHandler
+	default.dsl.store = rocksDB
+	default.key.serde = class org.apache.kafka.common.serialization.StringSerializer
+	default.list.key.serde.inner = null
+	default.list.key.serde.type = null
+	default.list.value.serde.inner = null
+	default.list.value.serde.type = null
+	default.production.exception.handler = class org.apache.kafka.streams.errors.DefaultProductionExceptionHandler
+	default.timestamp.extractor = class org.apache.kafka.streams.processor.FailOnInvalidTimestamp
+	default.value.serde = null
+	dsl.store.suppliers.class = class org.apache.kafka.streams.state.BuiltInDslStoreSuppliers$RocksDBDslStoreSuppliers
+	enable.metrics.push = true
+	log.summary.interval.ms = 120000
+	max.task.idle.ms = 0
+	max.warmup.replicas = 2
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	num.standby.replicas = 0
+	num.stream.threads = 1
+	poll.ms = 100
+	probing.rebalance.interval.ms = 600000
+	processing.exception.handler = class org.apache.kafka.streams.errors.LogAndFailProcessingExceptionHandler
+	processing.guarantee = exactly_once_v2
+	rack.aware.assignment.non_overlap_cost = null
+	rack.aware.assignment.strategy = none
+	rack.aware.assignment.tags = []
+	rack.aware.assignment.traffic_cost = null
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	repartition.purge.interval.ms = 30000
+	replication.factor = -1
+	request.timeout.ms = 40000
+	retries = 0
+	retry.backoff.ms = 100
+	rocksdb.config.setter = null
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	state.cleanup.delay.ms = 600000
+	state.dir = /var/folders/1y/fyj80l0934v2_b5bkmt_d7100000gn/T//kafka-streams
+	statestore.cache.max.bytes = 10485760
+	task.assignor.class = null
+	task.timeout.ms = 300000
+	topology.optimization = none
+	upgrade.from = null
+	window.size.ms = null
+	windowed.inner.class.serde = null
+	windowstore.changelog.additional.retention.ms = 86400000
+
+2025-06-21T17:30:36.759+05:30 DEBUG 21387 --- [order-processing-streams-service] [main] o.s.k.config.StreamsBuilderFactoryBean   : Topologies:
+   Sub-topology: 0
+    Source: KSTREAM-SOURCE-0000000000 (topics: [orders-raw])
+      --> KSTREAM-FILTER-0000000001
+    Processor: KSTREAM-FILTER-0000000001 (stores: [])
+      --> KSTREAM-PEEK-0000000002
+      <-- KSTREAM-SOURCE-0000000000
+    Processor: KSTREAM-PEEK-0000000002 (stores: [])
+      --> KSTREAM-MAPVALUES-0000000003
+      <-- KSTREAM-FILTER-0000000001
+    Processor: KSTREAM-MAPVALUES-0000000003 (stores: [])
+      --> KSTREAM-PEEK-0000000004
+      <-- KSTREAM-PEEK-0000000002
+    Processor: KSTREAM-PEEK-0000000004 (stores: [])
+      --> KSTREAM-SINK-0000000005
+      <-- KSTREAM-MAPVALUES-0000000003
+    Sink: KSTREAM-SINK-0000000005 (topic: orders-processed)
+      <-- KSTREAM-PEEK-0000000004
+
+
+2025-06-21T17:30:36.767+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-06-21T17:30:36.768+05:30  INFO 21387 --- [order-processing-streams-service] [main] org.apache.kafka.streams.StreamsConfig   : StreamsConfig values: 
+	acceptable.recovery.lag = 10000
+	application.id = order-processing-app-id
+	application.server = 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	buffered.records.per.partition = 1000
+	built.in.metrics.version = latest
+	cache.max.bytes.buffering = 10485760
+	client.id = 
+	commit.interval.ms = 100
+	connections.max.idle.ms = 540000
+	default.client.supplier = class org.apache.kafka.streams.processor.internals.DefaultKafkaClientSupplier
+	default.deserialization.exception.handler = class org.apache.kafka.streams.errors.LogAndFailExceptionHandler
+	default.dsl.store = rocksDB
+	default.key.serde = class org.apache.kafka.common.serialization.StringSerializer
+	default.list.key.serde.inner = null
+	default.list.key.serde.type = null
+	default.list.value.serde.inner = null
+	default.list.value.serde.type = null
+	default.production.exception.handler = class org.apache.kafka.streams.errors.DefaultProductionExceptionHandler
+	default.timestamp.extractor = class org.apache.kafka.streams.processor.FailOnInvalidTimestamp
+	default.value.serde = null
+	dsl.store.suppliers.class = class org.apache.kafka.streams.state.BuiltInDslStoreSuppliers$RocksDBDslStoreSuppliers
+	enable.metrics.push = true
+	log.summary.interval.ms = 120000
+	max.task.idle.ms = 0
+	max.warmup.replicas = 2
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	num.standby.replicas = 0
+	num.stream.threads = 1
+	poll.ms = 100
+	probing.rebalance.interval.ms = 600000
+	processing.exception.handler = class org.apache.kafka.streams.errors.LogAndFailProcessingExceptionHandler
+	processing.guarantee = exactly_once_v2
+	rack.aware.assignment.non_overlap_cost = null
+	rack.aware.assignment.strategy = none
+	rack.aware.assignment.tags = []
+	rack.aware.assignment.traffic_cost = null
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	repartition.purge.interval.ms = 30000
+	replication.factor = -1
+	request.timeout.ms = 40000
+	retries = 0
+	retry.backoff.ms = 100
+	rocksdb.config.setter = null
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	state.cleanup.delay.ms = 600000
+	state.dir = /var/folders/1y/fyj80l0934v2_b5bkmt_d7100000gn/T//kafka-streams
+	statestore.cache.max.bytes = 10485760
+	task.assignor.class = null
+	task.timeout.ms = 300000
+	topology.optimization = none
+	upgrade.from = null
+	window.size.ms = null
+	windowed.inner.class.serde = null
+	windowstore.changelog.additional.retention.ms = 86400000
+
+2025-06-21T17:30:36.770+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.s.p.internals.StateDirectory       : Created new process id: 92dce605-ca26-447b-8764-63f500d8350b
+2025-06-21T17:30:36.775+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-admin
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-06-21T17:30:36.790+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T17:30:36.790+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T17:30:36.790+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750507236790
+2025-06-21T17:30:36.791+05:30  INFO 21387 --- [order-processing-streams-service] [main] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] Kafka Streams version: 3.9.1
+2025-06-21T17:30:36.791+05:30  INFO 21387 --- [order-processing-streams-service] [main] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] Kafka Streams commit ID: f745dfdcee2b9851
+2025-06-21T17:30:36.794+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Creating restore consumer client
+2025-06-21T17:30:36.795+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = none
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-restore-consumer
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = null
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = false
+	internal.throw.on.fetch.stable.offset.unsupported = true
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 1000
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+2025-06-21T17:30:36.807+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T17:30:36.820+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T17:30:36.820+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T17:30:36.820+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750507236820
+2025-06-21T17:30:36.822+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Creating thread producer client
+2025-06-21T17:30:36.824+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-producer
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 2147483647
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 100
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 10000
+	transactional.id = order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-1
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+2025-06-21T17:30:36.826+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T17:30:36.829+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-producer, transactionalId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-1] Instantiated a transactional producer.
+2025-06-21T17:30:36.834+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T17:30:36.834+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T17:30:36.834+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750507236834
+2025-06-21T17:30:36.836+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StateUpdater-1] o.a.k.s.p.internals.DefaultStateUpdater  : state-updater [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StateUpdater-1] State updater thread started
+2025-06-21T17:30:36.837+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Creating consumer client
+2025-06-21T17:30:36.838+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = false
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-consumer
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = order-processing-app-id
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = false
+	internal.throw.on.fetch.stable.offset.unsupported = true
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 1000
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+2025-06-21T17:30:36.839+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T17:30:36.843+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.s.p.i.a.AssignorConfiguration      : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-consumer] Cooperative rebalancing protocol is enabled now
+2025-06-21T17:30:36.848+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.k.clients.consumer.ConsumerConfig    : These configurations '[replication.factor, probing.rebalance.interval.ms, max.warmup.replicas, acceptable.recovery.lag, task.assignor.class, rack.aware.assignment.non_overlap_cost, application.server, rack.aware.assignment.strategy, rack.aware.assignment.traffic_cost, windowstore.changelog.additional.retention.ms, num.standby.replicas, upgrade.from, rack.aware.assignment.tags, application.id]' were supplied but are not used yet.
+2025-06-21T17:30:36.848+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T17:30:36.848+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T17:30:36.848+05:30  INFO 21387 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750507236848
+2025-06-21T17:30:36.849+05:30  INFO 21387 --- [order-processing-streams-service] [main] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] State transition from CREATED to REBALANCING
+2025-06-21T17:30:36.850+05:30  INFO 21387 --- [order-processing-streams-service] [main] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] Started 1 stream threads
+2025-06-21T17:30:36.850+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Starting
+2025-06-21T17:30:36.850+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] State transition from CREATED to STARTING
+2025-06-21T17:30:36.850+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-consumer, groupId=order-processing-app-id] Subscribed to topic(s): orders-raw
+2025-06-21T17:30:36.853+05:30  INFO 21387 --- [order-processing-streams-service] [main] OrderProcessingStreamsServiceApplication : Started StreamerOrderProcessingStreamsServiceApplication in 0.64 seconds (process running for 0.815)
+2025-06-21T17:30:36.900+05:30  INFO 21387 --- [order-processing-streams-service] [kafka-producer-network-thread | order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-producer, transactionalId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-1] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21T17:30:36.901+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-consumer, groupId=order-processing-app-id] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21T17:30:36.958+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Processed 0 total records, ran 0 punctuators, polled 1 times and committed 0 total tasks since the last update 1750507236959ms ago
+2025-06-21T17:32:36.962+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Processed 0 total records, ran 0 punctuators, polled 1170 times and committed 0 total tasks since the last update 120004ms ago
+2025-06-21T17:34:25.335+05:30  INFO 21387 --- [order-processing-streams-service] [SpringApplicationShutdownHook] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] State transition from REBALANCING to PENDING_SHUTDOWN
+2025-06-21T17:34:25.337+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-CloseThread] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Informed to shut down
+2025-06-21T17:34:25.337+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-CloseThread] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] State transition from STARTING to PENDING_SHUTDOWN
+2025-06-21T17:34:25.337+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-CloseThread] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] Shutting down 1 stream threads
+2025-06-21T17:34:25.427+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Shutting down clean
+2025-06-21T17:34:25.428+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.p.internals.DefaultStateUpdater  : state-updater [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StateUpdater-1] Shutting down state updater thread
+2025-06-21T17:34:25.428+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StateUpdater-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-restore-consumer, groupId=null] Unsubscribed all topics or patterns and assigned partitions
+2025-06-21T17:34:25.428+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StateUpdater-1] o.a.k.s.p.internals.DefaultStateUpdater  : state-updater [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StateUpdater-1] State updater thread stopped
+2025-06-21T17:34:25.430+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-producer, transactionalId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+2025-06-21T17:34:25.433+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T17:34:25.433+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T17:34:25.433+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T17:34:25.433+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T17:34:25.433+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-producer unregistered
+2025-06-21T17:34:25.434+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.processor.internals.TaskManager  : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Shutdown complete
+2025-06-21T17:34:25.434+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-restore-consumer, groupId=null] Unsubscribed all topics or patterns and assigned partitions
+2025-06-21T17:34:25.437+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T17:34:25.437+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T17:34:25.437+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T17:34:25.437+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T17:34:25.438+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-consumer unregistered
+2025-06-21T17:34:25.438+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T17:34:25.438+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T17:34:25.438+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T17:34:25.438+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T17:34:25.439+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1-restore-consumer unregistered
+2025-06-21T17:34:25.439+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] State transition from PENDING_SHUTDOWN to DEAD
+2025-06-21T17:34:25.439+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-StreamThread-1] Shutdown complete
+2025-06-21T17:34:25.439+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-CloseThread] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] Shutdown 1 stream threads complete
+2025-06-21T17:34:25.439+05:30  INFO 21387 --- [order-processing-streams-service] [kafka-admin-client-thread | order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-admin] o.a.kafka.common.utils.AppInfoParser     : App info kafka.admin.client for order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-admin unregistered
+2025-06-21T17:34:25.440+05:30  INFO 21387 --- [order-processing-streams-service] [kafka-admin-client-thread | order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-admin] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T17:34:25.440+05:30  INFO 21387 --- [order-processing-streams-service] [kafka-admin-client-thread | order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-admin] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T17:34:25.440+05:30  INFO 21387 --- [order-processing-streams-service] [kafka-admin-client-thread | order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-admin] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T17:34:25.440+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-CloseThread] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T17:34:25.440+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-CloseThread] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T17:34:25.440+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-CloseThread] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T17:34:25.440+05:30  INFO 21387 --- [order-processing-streams-service] [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b-CloseThread] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] State transition from PENDING_SHUTDOWN to NOT_RUNNING
+2025-06-21T17:34:25.440+05:30  INFO 21387 --- [order-processing-streams-service] [SpringApplicationShutdownHook] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-92dce605-ca26-447b-8764-63f500d8350b] Streams client stopped completely
+2025-06-21T17:34:25.441+05:30  INFO 21387 --- [order-processing-streams-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-21T17:34:27.449+05:30  INFO 21387 --- [order-processing-streams-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-21T18:00:52.986+05:30  INFO 25352 --- [order-processing-streams-service] [main] OrderProcessingStreamsServiceApplication : Starting StreamerOrderProcessingStreamsServiceApplication using Java 24 with PID 25352 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-processing-streams-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer)
+2025-06-21T18:00:52.987+05:30 DEBUG 25352 --- [order-processing-streams-service] [main] OrderProcessingStreamsServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-21T18:00:52.987+05:30  INFO 25352 --- [order-processing-streams-service] [main] OrderProcessingStreamsServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-21T18:00:53.234+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-06-21T18:00:53.239+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-21T18:00:53.239+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-21T18:00:53.248+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-21T18:00:53.248+05:30  INFO 25352 --- [order-processing-streams-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 247 ms
+2025-06-21T18:00:53.297+05:30  INFO 25352 --- [order-processing-streams-service] [main] org.apache.kafka.streams.StreamsConfig   : StreamsConfig values: 
+	acceptable.recovery.lag = 10000
+	application.id = order-processing-app-id
+	application.server = 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	buffered.records.per.partition = 1000
+	built.in.metrics.version = latest
+	cache.max.bytes.buffering = 10485760
+	client.id = 
+	commit.interval.ms = 100
+	connections.max.idle.ms = 540000
+	default.client.supplier = class org.apache.kafka.streams.processor.internals.DefaultKafkaClientSupplier
+	default.deserialization.exception.handler = class org.apache.kafka.streams.errors.LogAndFailExceptionHandler
+	default.dsl.store = rocksDB
+	default.key.serde = class org.apache.kafka.common.serialization.StringSerializer
+	default.list.key.serde.inner = null
+	default.list.key.serde.type = null
+	default.list.value.serde.inner = null
+	default.list.value.serde.type = null
+	default.production.exception.handler = class org.apache.kafka.streams.errors.DefaultProductionExceptionHandler
+	default.timestamp.extractor = class org.apache.kafka.streams.processor.FailOnInvalidTimestamp
+	default.value.serde = null
+	dsl.store.suppliers.class = class org.apache.kafka.streams.state.BuiltInDslStoreSuppliers$RocksDBDslStoreSuppliers
+	enable.metrics.push = true
+	log.summary.interval.ms = 120000
+	max.task.idle.ms = 0
+	max.warmup.replicas = 2
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	num.standby.replicas = 0
+	num.stream.threads = 1
+	poll.ms = 100
+	probing.rebalance.interval.ms = 600000
+	processing.exception.handler = class org.apache.kafka.streams.errors.LogAndFailProcessingExceptionHandler
+	processing.guarantee = exactly_once_v2
+	rack.aware.assignment.non_overlap_cost = null
+	rack.aware.assignment.strategy = none
+	rack.aware.assignment.tags = []
+	rack.aware.assignment.traffic_cost = null
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	repartition.purge.interval.ms = 30000
+	replication.factor = -1
+	request.timeout.ms = 40000
+	retries = 0
+	retry.backoff.ms = 100
+	rocksdb.config.setter = null
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	state.cleanup.delay.ms = 600000
+	state.dir = /var/folders/1y/fyj80l0934v2_b5bkmt_d7100000gn/T//kafka-streams
+	statestore.cache.max.bytes = 10485760
+	task.assignor.class = null
+	task.timeout.ms = 300000
+	topology.optimization = none
+	upgrade.from = null
+	window.size.ms = null
+	windowed.inner.class.serde = null
+	windowstore.changelog.additional.retention.ms = 86400000
+
+2025-06-21T18:00:53.409+05:30 DEBUG 25352 --- [order-processing-streams-service] [main] o.s.k.config.StreamsBuilderFactoryBean   : Topologies:
+   Sub-topology: 0
+    Source: KSTREAM-SOURCE-0000000000 (topics: [orders-raw])
+      --> KSTREAM-FILTER-0000000001
+    Processor: KSTREAM-FILTER-0000000001 (stores: [])
+      --> KSTREAM-PEEK-0000000002
+      <-- KSTREAM-SOURCE-0000000000
+    Processor: KSTREAM-PEEK-0000000002 (stores: [])
+      --> KSTREAM-MAPVALUES-0000000003
+      <-- KSTREAM-FILTER-0000000001
+    Processor: KSTREAM-MAPVALUES-0000000003 (stores: [])
+      --> KSTREAM-PEEK-0000000004
+      <-- KSTREAM-PEEK-0000000002
+    Processor: KSTREAM-PEEK-0000000004 (stores: [])
+      --> KSTREAM-SINK-0000000005
+      <-- KSTREAM-MAPVALUES-0000000003
+    Sink: KSTREAM-SINK-0000000005 (topic: orders-processed)
+      <-- KSTREAM-PEEK-0000000004
+
+
+2025-06-21T18:00:53.417+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-06-21T18:00:53.418+05:30  INFO 25352 --- [order-processing-streams-service] [main] org.apache.kafka.streams.StreamsConfig   : StreamsConfig values: 
+	acceptable.recovery.lag = 10000
+	application.id = order-processing-app-id
+	application.server = 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	buffered.records.per.partition = 1000
+	built.in.metrics.version = latest
+	cache.max.bytes.buffering = 10485760
+	client.id = 
+	commit.interval.ms = 100
+	connections.max.idle.ms = 540000
+	default.client.supplier = class org.apache.kafka.streams.processor.internals.DefaultKafkaClientSupplier
+	default.deserialization.exception.handler = class org.apache.kafka.streams.errors.LogAndFailExceptionHandler
+	default.dsl.store = rocksDB
+	default.key.serde = class org.apache.kafka.common.serialization.StringSerializer
+	default.list.key.serde.inner = null
+	default.list.key.serde.type = null
+	default.list.value.serde.inner = null
+	default.list.value.serde.type = null
+	default.production.exception.handler = class org.apache.kafka.streams.errors.DefaultProductionExceptionHandler
+	default.timestamp.extractor = class org.apache.kafka.streams.processor.FailOnInvalidTimestamp
+	default.value.serde = null
+	dsl.store.suppliers.class = class org.apache.kafka.streams.state.BuiltInDslStoreSuppliers$RocksDBDslStoreSuppliers
+	enable.metrics.push = true
+	log.summary.interval.ms = 120000
+	max.task.idle.ms = 0
+	max.warmup.replicas = 2
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	num.standby.replicas = 0
+	num.stream.threads = 1
+	poll.ms = 100
+	probing.rebalance.interval.ms = 600000
+	processing.exception.handler = class org.apache.kafka.streams.errors.LogAndFailProcessingExceptionHandler
+	processing.guarantee = exactly_once_v2
+	rack.aware.assignment.non_overlap_cost = null
+	rack.aware.assignment.strategy = none
+	rack.aware.assignment.tags = []
+	rack.aware.assignment.traffic_cost = null
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	repartition.purge.interval.ms = 30000
+	replication.factor = -1
+	request.timeout.ms = 40000
+	retries = 0
+	retry.backoff.ms = 100
+	rocksdb.config.setter = null
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	state.cleanup.delay.ms = 600000
+	state.dir = /var/folders/1y/fyj80l0934v2_b5bkmt_d7100000gn/T//kafka-streams
+	statestore.cache.max.bytes = 10485760
+	task.assignor.class = null
+	task.timeout.ms = 300000
+	topology.optimization = none
+	upgrade.from = null
+	window.size.ms = null
+	windowed.inner.class.serde = null
+	windowstore.changelog.additional.retention.ms = 86400000
+
+2025-06-21T18:00:53.420+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.s.p.internals.StateDirectory       : Created new process id: b6715805-318e-4209-a459-75db8cd8256c
+2025-06-21T18:00:53.425+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-admin
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-06-21T18:00:53.444+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T18:00:53.444+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T18:00:53.444+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750509053440
+2025-06-21T18:00:53.445+05:30  INFO 25352 --- [order-processing-streams-service] [main] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] Kafka Streams version: 3.9.1
+2025-06-21T18:00:53.445+05:30  INFO 25352 --- [order-processing-streams-service] [main] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] Kafka Streams commit ID: f745dfdcee2b9851
+2025-06-21T18:00:53.449+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Creating restore consumer client
+2025-06-21T18:00:53.450+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = none
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-restore-consumer
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = null
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = false
+	internal.throw.on.fetch.stable.offset.unsupported = true
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 1000
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+2025-06-21T18:00:53.460+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T18:00:53.472+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T18:00:53.472+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T18:00:53.472+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750509053472
+2025-06-21T18:00:53.474+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Creating thread producer client
+2025-06-21T18:00:53.476+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-producer
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 2147483647
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 100
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 10000
+	transactional.id = order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-1
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+2025-06-21T18:00:53.478+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T18:00:53.480+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-producer, transactionalId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-1] Instantiated a transactional producer.
+2025-06-21T18:00:53.484+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T18:00:53.484+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T18:00:53.484+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750509053484
+2025-06-21T18:00:53.487+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StateUpdater-1] o.a.k.s.p.internals.DefaultStateUpdater  : state-updater [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StateUpdater-1] State updater thread started
+2025-06-21T18:00:53.488+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Creating consumer client
+2025-06-21T18:00:53.489+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = false
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-consumer
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = order-processing-app-id
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = false
+	internal.throw.on.fetch.stable.offset.unsupported = true
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 1000
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+2025-06-21T18:00:53.489+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T18:00:53.493+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.s.p.i.a.AssignorConfiguration      : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-consumer] Cooperative rebalancing protocol is enabled now
+2025-06-21T18:00:53.498+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.k.clients.consumer.ConsumerConfig    : These configurations '[replication.factor, probing.rebalance.interval.ms, max.warmup.replicas, acceptable.recovery.lag, task.assignor.class, rack.aware.assignment.non_overlap_cost, application.server, rack.aware.assignment.strategy, rack.aware.assignment.traffic_cost, windowstore.changelog.additional.retention.ms, num.standby.replicas, upgrade.from, rack.aware.assignment.tags, application.id]' were supplied but are not used yet.
+2025-06-21T18:00:53.498+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T18:00:53.498+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T18:00:53.498+05:30  INFO 25352 --- [order-processing-streams-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750509053498
+2025-06-21T18:00:53.500+05:30  INFO 25352 --- [order-processing-streams-service] [main] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] State transition from CREATED to REBALANCING
+2025-06-21T18:00:53.500+05:30  INFO 25352 --- [order-processing-streams-service] [main] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] Started 1 stream threads
+2025-06-21T18:00:53.500+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Starting
+2025-06-21T18:00:53.500+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] State transition from CREATED to STARTING
+2025-06-21T18:00:53.500+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-consumer, groupId=order-processing-app-id] Subscribed to topic(s): orders-raw
+2025-06-21T18:00:53.503+05:30  INFO 25352 --- [order-processing-streams-service] [main] OrderProcessingStreamsServiceApplication : Started StreamerOrderProcessingStreamsServiceApplication in 0.652 seconds (process running for 0.838)
+2025-06-21T18:00:53.548+05:30  INFO 25352 --- [order-processing-streams-service] [kafka-producer-network-thread | order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-producer] org.apache.kafka.clients.Metadata        : [Producer clientId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-producer, transactionalId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-1] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21T18:00:53.548+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-consumer, groupId=order-processing-app-id] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21T18:00:53.605+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Processed 0 total records, ran 0 punctuators, polled 1 times and committed 0 total tasks since the last update 1750509053606ms ago
+2025-06-21T18:02:53.708+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Processed 0 total records, ran 0 punctuators, polled 1171 times and committed 0 total tasks since the last update 120103ms ago
+2025-06-21T18:03:51.198+05:30  INFO 25352 --- [order-processing-streams-service] [SpringApplicationShutdownHook] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] State transition from REBALANCING to PENDING_SHUTDOWN
+2025-06-21T18:03:51.199+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-CloseThread] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Informed to shut down
+2025-06-21T18:03:51.199+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-CloseThread] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] State transition from STARTING to PENDING_SHUTDOWN
+2025-06-21T18:03:51.199+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-CloseThread] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] Shutting down 1 stream threads
+2025-06-21T18:03:51.236+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Shutting down clean
+2025-06-21T18:03:51.238+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.p.internals.DefaultStateUpdater  : state-updater [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StateUpdater-1] Shutting down state updater thread
+2025-06-21T18:03:51.238+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StateUpdater-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-restore-consumer, groupId=null] Unsubscribed all topics or patterns and assigned partitions
+2025-06-21T18:03:51.238+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StateUpdater-1] o.a.k.s.p.internals.DefaultStateUpdater  : state-updater [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StateUpdater-1] State updater thread stopped
+2025-06-21T18:03:51.239+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-producer, transactionalId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+2025-06-21T18:03:51.241+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T18:03:51.241+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T18:03:51.241+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T18:03:51.241+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T18:03:51.241+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-producer unregistered
+2025-06-21T18:03:51.242+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.processor.internals.TaskManager  : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Shutdown complete
+2025-06-21T18:03:51.242+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-restore-consumer, groupId=null] Unsubscribed all topics or patterns and assigned partitions
+2025-06-21T18:03:51.243+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T18:03:51.243+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T18:03:51.243+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T18:03:51.243+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T18:03:51.244+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-consumer unregistered
+2025-06-21T18:03:51.244+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T18:03:51.244+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T18:03:51.244+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T18:03:51.244+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T18:03:51.244+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1-restore-consumer unregistered
+2025-06-21T18:03:51.245+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] State transition from PENDING_SHUTDOWN to DEAD
+2025-06-21T18:03:51.245+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] o.a.k.s.p.internals.StreamThread         : stream-thread [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-StreamThread-1] Shutdown complete
+2025-06-21T18:03:51.245+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-CloseThread] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] Shutdown 1 stream threads complete
+2025-06-21T18:03:51.245+05:30  INFO 25352 --- [order-processing-streams-service] [kafka-admin-client-thread | order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-admin] o.a.kafka.common.utils.AppInfoParser     : App info kafka.admin.client for order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-admin unregistered
+2025-06-21T18:03:51.245+05:30  INFO 25352 --- [order-processing-streams-service] [kafka-admin-client-thread | order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-admin] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T18:03:51.245+05:30  INFO 25352 --- [order-processing-streams-service] [kafka-admin-client-thread | order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-admin] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T18:03:51.245+05:30  INFO 25352 --- [order-processing-streams-service] [kafka-admin-client-thread | order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-admin] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T18:03:51.246+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-CloseThread] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T18:03:51.246+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-CloseThread] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T18:03:51.246+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-CloseThread] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T18:03:51.246+05:30  INFO 25352 --- [order-processing-streams-service] [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c-CloseThread] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] State transition from PENDING_SHUTDOWN to NOT_RUNNING
+2025-06-21T18:03:51.246+05:30  INFO 25352 --- [order-processing-streams-service] [SpringApplicationShutdownHook] org.apache.kafka.streams.KafkaStreams    : stream-client [order-processing-app-id-b6715805-318e-4209-a459-75db8cd8256c] Streams client stopped completely
+2025-06-21T18:03:51.246+05:30  INFO 25352 --- [order-processing-streams-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-21T18:03:53.257+05:30  INFO 25352 --- [order-processing-streams-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

@@ -1,0 +1,32 @@
+# application.yml (order-consumer-service)
+server:
+  port: 8082 # Unique port for this microservice
+
+spring:
+  application:
+    name: order-consumer-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: order-notification-group # Unique consumer group ID
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest # Start from beginning for testing
+      properties:
+        spring.json.value.default.type: com.mobox.streamerorderconsumerservice.model.ProcessedOrder # Hint for JsonDeserializer
+
+app:
+  kafka:
+    topics:
+      orders-processed: orders-processed
+
+logging:
+  level:
+    root: INFO
+    com.mobox: DEBUG
+    org.apache.kafka: INFO
+    org.springframework.kafka: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: "logs/consumer-service.log"
