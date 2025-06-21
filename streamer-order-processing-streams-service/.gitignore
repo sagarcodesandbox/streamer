@@ -1,0 +1,110 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Ignore Kafka data directory (crucial for local Kafka setup)
+/kafka-data/
+
+# Ignore logs from Spring Boot services (especially if written to files)
+/logs/
+
+# Maven target directories (contains compiled code, usually ignored)
+**/target/
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse specific files
+.classpath
+.project
+.settings/
+
+# Docker / Containerization related files
+docker-compose.yml.orig # Sometimes created as backup
+
+# Kafka specific data and logs (CRITICAL to ignore)
+
+/kafka-data/
+/logs/
+
+# Target directories for Maven/Gradle builds
+**/target/
+
+# Application generated log files (often configured in application.yml)
+/logs/ # Top-level logs directory
+*.log # Any .log file in the current or sub-directories if not covered by a parent folder
+*.gz # Any .gz (gzipped log archives) files if not covered by a parent folder
+
+# Target directories for Maven/Gradle builds
+**/target/
+**/build/ # Common for Gradle projects, good to include
+
+# IntelliJ IDEA project files (IDE specific)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse project files (if applicable)
+.classpath
+.project
+.settings/
+
+# macOS specific files
+.DS_Store
+
+# Java-specific ignore patterns
+*.class
+
+# Maven wrapper files (if you use Maven Wrapper)
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Gradle wrapper files (if you use Gradle Wrapper)
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/gradle-wrapper.jar # Keep the wrapper jar in version control
+!gradle/wrapper/gradle-wrapper.properties # Keep the wrapper properties in version control
+
+# Common OS generated files
+Thumbs.db
+.localized
+
+# Kafka specific data and logs (CRITICAL to ignore)
+/kafka-data/
+
+# Application generated log files (often configured in application.yml)
+/logs/ # Top-level logs directory

@@ -1,0 +1,41 @@
+# application.yml (order-processing-streams-service)
+server:
+  port: 8081 # Unique port for this microservice
+
+spring:
+  application:
+    name: order-processing-streams-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    streams:
+      application-id: order-processing-app-id # Unique ID for this Kafka Streams app
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.StringSerializer
+        processing.guarantee: exactly_once_v2
+        num.stream.threads: 1
+        # Explicitly set the default value type for JSON deserializer within streams.
+        # This helps in scenarios where the type might not be inferred or when
+        # Spring Kafka needs a hint for the underlying consumer.
+        spring.json.value.default.type: com.mobox.streamerorderprocessingstreamsservice.model.Order
+    # For streams, we define producer/consumer properties via streams.properties if not using default
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      # IMPORTANT: Add this line to explicitly tell JsonDeserializer the default type
+      properties:
+        spring.json.value.default.type: com.mobox.streamerorderprocessingstreamsservice.model.Order
+        spring.json.trusted.packages: "*"
+logging:
+  level:
+    root: INFO
+    com.mobox: DEBUG
+    org.apache.kafka: INFO
+    org.springframework.kafka: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: "logs/streams-service.log"
