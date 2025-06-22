@@ -1,0 +1,527 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/opt/homebrew/Cellar/maven/3.9.9/libexec/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/opt/homebrew/Cellar/maven/3.9.9/libexec/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< com.mobox:streamer-order-consumer-service >--------------
+[INFO] Building streamer-order-consumer-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.3:run (default-cli) > test-compile @ streamer-order-consumer-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ streamer-order-consumer-service ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ streamer-order-consumer-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ streamer-order-consumer-service ---
+[INFO] skip non existing resourceDirectory /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ streamer-order-consumer-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.5.3:run (default-cli) < test-compile @ streamer-order-consumer-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.3:run (default-cli) @ streamer-order-consumer-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.3)
+
+2025-06-21 19:49:11 [main] INFO  c.m.s.StreamerOrderConsumerServiceApplication - Starting StreamerOrderConsumerServiceApplication using Java 24 with PID 42108 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service)
+2025-06-21 19:49:11 [main] DEBUG c.m.s.StreamerOrderConsumerServiceApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-21 19:49:11 [main] INFO  c.m.s.StreamerOrderConsumerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-21 19:49:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2025-06-21 19:49:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-21 19:49:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-21 19:49:12 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-21 19:49:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 224 ms
+2025-06-21 19:49:12 [main] DEBUG o.s.k.a.KafkaListenerAnnotationBeanPostProcessor - No retry topic configuration found for topics [orders-processed]
+2025-06-21 19:49:12 [main] DEBUG o.s.k.a.KafkaListenerAnnotationBeanPostProcessor - 1 @KafkaListener methods processed on bean 'processedOrderConsumer': {public void com.mobox.streamerorderconsumerservice.consumer.ProcessedOrderConsumer.listenProcessedOrders(com.mobox.streamerorderconsumerservice.model.ProcessedOrder)=[@org.springframework.kafka.annotation.KafkaListener(topicPattern="", containerFactory="", beanRef="__listener", contentTypeConverter="", topics={"${app.kafka.topics.orders-processed}"}, groupId="${spring.kafka.consumer.group-id}", batch="", topicPartitions={}, clientIdPrefix="", splitIterables=true, concurrency="", autoStartup="", filter="", containerGroup="", idIsGroup=true, errorHandler="", containerPostProcessor="", id="", properties={}, info="")]}
+2025-06-21 19:49:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2025-06-21 19:49:12 [main] INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-order-notification-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = order-notification-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-06-21 19:49:12 [main] INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-06-21 19:49:12 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-06-21 19:49:12 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-06-21 19:49:12 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1750515552322
+2025-06-21 19:49:12 [main] INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Subscribed to topic(s): orders-processed
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:12 [main] INFO  c.m.s.StreamerOrderConsumerServiceApplication - Started StreamerOrderConsumerServiceApplication in 0.58 seconds (process running for 0.668)
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: need to re-join with the given member-id: consumer-order-notification-group-1-5668def3-8893-4024-948a-03620abd8a4b
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-order-notification-group-1-5668def3-8893-4024-948a-03620abd8a4b', protocol='range'}
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Finished assignment for group at generation 3: {consumer-order-notification-group-1-5668def3-8893-4024-948a-03620abd8a4b=Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])}
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully synced group in generation Generation{generationId=3, memberId='consumer-order-notification-group-1-5668def3-8893-4024-948a-03620abd8a4b', protocol='range'}
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Notifying assignor about the new Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Adding newly assigned partitions: orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-2
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-1
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-0
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=2}}.
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=2}}.
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=2}}.
+2025-06-21 19:49:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer - order-notification-group: partitions assigned: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-21 19:49:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:49:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:49:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:24 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-21 19:50:24 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-21 19:50:24 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-06-21 19:50:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:50:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:50:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:51:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:51:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:52:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:52:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:53:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:53:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:54:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:54:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:55:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:55:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:56:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:56:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:57:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:57:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.a.k.c.c.internals.FetchCollector - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Received unknown topic or partition error in fetch for partition orders-processed-0
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] The metadata response from the cluster reported a recoverable issue with correlation id 1252 : {orders-processed=UNKNOWN_TOPIC_OR_PARTITION}
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: cached metadata has changed from (version2: {orders-processed=[NO_RACKS, NO_RACKS, NO_RACKS]}) at the beginning of the rebalance to (version4: {orders-processed=[]})
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Revoke previously assigned partitions orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer - order-notification-group: partitions revoked: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully joined group with generation Generation{generationId=4, memberId='consumer-order-notification-group-1-5668def3-8893-4024-948a-03620abd8a4b', protocol='range'}
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting the last seen epoch of partition orders-processed-1 to 0 since the associated topicId changed from null to h5QSFTuaSpuVTSQdpj8-Eg
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting the last seen epoch of partition orders-processed-2 to 0 since the associated topicId changed from null to h5QSFTuaSpuVTSQdpj8-Eg
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting the last seen epoch of partition orders-processed-0 to 0 since the associated topicId changed from null to h5QSFTuaSpuVTSQdpj8-Eg
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Finished assignment for group at generation 4: {consumer-order-notification-group-1-5668def3-8893-4024-948a-03620abd8a4b=Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])}
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully synced group in generation Generation{generationId=4, memberId='consumer-order-notification-group-1-5668def3-8893-4024-948a-03620abd8a4b', protocol='range'}
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Notifying assignor about the new Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Adding newly assigned partitions: orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-2
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-1
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-0
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-21 19:58:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer - order-notification-group: partitions assigned: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-21 19:58:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:58:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:58:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 19:59:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 19:59:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:52 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:00:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:00:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:02 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:07 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:12 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:17 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:22 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:32 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Received: 0 records
+2025-06-21 20:01:47 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Revoke previously assigned partitions orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer - order-notification-group: partitions revoked: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - Commit list: {}
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Member consumer-order-notification-group-1-5668def3-8893-4024-948a-03620abd8a4b sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: consumer pro-actively leaving the group
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Unsubscribed all topics or patterns and assigned partitions
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: consumer pro-actively leaving the group
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-order-notification-group-1 unregistered
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer - order-notification-group: Consumer stopped
+2025-06-21 20:01:48 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG o.s.k.l.KafkaMessageListenerContainer - KafkaMessageListenerContainer [id=org.springframework.kafka.KafkaListenerEndpointContainer#0-0, clientIndex=-0, topicPartitions=[]] stopped normally
+2025-06-21 20:01:48 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-21 20:01:50 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete

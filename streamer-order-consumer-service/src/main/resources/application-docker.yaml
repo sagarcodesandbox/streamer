@@ -1,4 +1,4 @@
-# application.yml (order-consumer-service)
+# application-docker.yml (order-consumer-service)
 server:
   port: 8082 # Unique port for this microservice
 
@@ -6,7 +6,7 @@ spring:
   application:
     name: order-consumer-service
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: broker:29092 # Docker internal network address
     consumer:
       group-id: order-notification-group # Unique consumer group ID
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer

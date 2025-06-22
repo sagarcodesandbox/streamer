@@ -1,0 +1,70 @@
+create few more test commands
+Here are multiple test commands to thoroughly test your Kafka streaming pipeline:
+
+🧪 Basic Test Commands
+# Test 1 - Single Product Order
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "basic-001", "status": "NEW", "customerId": "customer-basic", "amount": 49.99, "productIds": ["laptop"], "timestamp": 1734790200000}'
+
+# Test 2 - Multiple Products Order
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "basic-002", "status": "NEW", "customerId": "customer-multi", "amount": 299.99, "productIds": ["mouse", "keyboard", "monitor"], "timestamp": 1734790300000}'
+
+# Test 3 - High Value Order
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "basic-003", "status": "NEW", "customerId": "customer-premium", "amount": 1599.99, "productIds": ["gaming-pc", "graphics-card"], "timestamp": 1734790400000}'
+bash
+
+
+📊 Volume Testing Commands
+# Burst Test 1 - Small Orders
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "burst-001", "status": "NEW", "customerId": "customer-burst1", "amount": 25.50, "productIds": ["pen"], "timestamp": 1734790500000}'
+
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "burst-002", "status": "NEW", "customerId": "customer-burst2", "amount": 35.75, "productIds": ["notebook"], "timestamp": 1734790510000}'
+
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "burst-003", "status": "NEW", "customerId": "customer-burst3", "amount": 15.25, "productIds": ["eraser"], "timestamp": 1734790520000}'
+
+# Burst Test 2 - Medium Orders
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "medium-001", "status": "NEW", "customerId": "customer-med1", "amount": 299.99, "productIds": ["headphones", "microphone"], "timestamp": 1734790600000}'
+
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "medium-002", "status": "NEW", "customerId": "customer-med2", "amount": 399.99, "productIds": ["tablet", "case", "stylus"], "timestamp": 1734790610000}'
+
+bash
+🎯 Edge Case Testing Commands
+# Edge Case 1 - Very Small Amount
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "edge-001", "status": "NEW", "customerId": "customer-penny", "amount": 0.01, "productIds": ["digital-download"], "timestamp": 1734790700000}'
+
+# Edge Case 2 - Very High Amount
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "edge-002", "status": "NEW", "customerId": "customer-whale", "amount": 9999.99, "productIds": ["enterprise-software", "support-package"], "timestamp": 1734790800000}'
+
+# Edge Case 3 - Many Products
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "edge-003", "status": "NEW", "customerId": "customer-bulk", "amount": 599.99, "productIds": ["item1", "item2", "item3", "item4", "item5", "item6", "item7", "item8"], "timestamp": 1734790900000}'
+
+# Edge Case 4 - Special Characters in Customer ID
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "edge-004", "status": "NEW", "customerId": "customer-special@email.com", "amount": 199.99, "productIds": ["email-service"], "timestamp": 1734791000000}'
+
+bash
+🚀 Rapid Fire Testing (Run in sequence)
+# Sequence 1 - Electronics Store
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "electronics-001", "status": "NEW", "customerId": "tech-buyer-1", "amount": 799.99, "productIds": ["smartphone"], "timestamp": 1734791100000}'
+
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "electronics-002", "status": "NEW", "customerId": "tech-buyer-2", "amount": 1299.99, "productIds": ["laptop", "mouse"], "timestamp": 1734791110000}'
+
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "electronics-003", "status": "NEW", "customerId": "tech-buyer-3", "amount": 2999.99, "productIds": ["gaming-setup", "monitor", "chair"], "timestamp": 1734791120000}'
+
+# Sequence 2 - Fashion Store
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "fashion-001", "status": "NEW", "customerId": "fashion-lover-1", "amount": 89.99, "productIds": ["t-shirt", "jeans"], "timestamp": 1734791200000}'
+
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "fashion-002", "status": "NEW", "customerId": "fashion-lover-2", "amount": 299.99, "productIds": ["dress", "shoes", "handbag"], "timestamp": 1734791210000}'
+bash
+
+⚡ One-Liner Automation Script
+# Run multiple tests with delays (copy-paste this entire block)
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "auto-001", "status": "NEW", "customerId": "auto-customer-1", "amount": 149.99, "productIds": ["auto-product-1"], "timestamp": 1734791300000}' && sleep 2 && \
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "auto-002", "status": "NEW", "customerId": "auto-customer-2", "amount": 249.99, "productIds": ["auto-product-2"], "timestamp": 1734791310000}' && sleep 2 && \
+curl -X POST http://localhost:8080/api/orders/create -H "Content-Type: application/json" -d '{"orderId": "auto-003", "status": "NEW", "customerId": "auto-customer-3", "amount": 349.99, "productIds": ["auto-product-3"], "timestamp": 1734791320000}'
+bash
+🔍 What to Watch For:
+
+Terminal 1 (Creation Service): Order creation confirmations
+Terminal 2 (Streams Service): Processing and enrichment logs
+Terminal 3 (Consumer Service): Final consumption logs
+
+Pro tip: Wait 1-2 seconds between commands to see the complete flow for each order! 🕐

@@ -1,4 +1,4 @@
-# application.yml (order-creation-service)
+# application-docker.yml (order-creation-service)
 server:
   port: 8080 # Unique port for this microservice
 
@@ -6,7 +6,7 @@ spring:
   application:
     name: order-creation-service
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: broker:29092 # Docker internal network address
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

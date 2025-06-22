@@ -1,0 +1,408 @@
+2025-06-21T17:30:26.265+05:30  INFO 21382 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Starting StreamerOrderCreationServiceApplication using Java 24 with PID 21382 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-creation-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer)
+2025-06-21T17:30:26.266+05:30 DEBUG 21382 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-21T17:30:26.266+05:30  INFO 21382 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-21T17:30:26.519+05:30  INFO 21382 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-21T17:30:26.524+05:30  INFO 21382 --- [order-creation-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-21T17:30:26.524+05:30  INFO 21382 --- [order-creation-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-21T17:30:26.537+05:30  INFO 21382 --- [order-creation-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-21T17:30:26.537+05:30  INFO 21382 --- [order-creation-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 257 ms
+2025-06-21T17:30:26.681+05:30  INFO 21382 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-21T17:30:26.684+05:30  INFO 21382 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Started StreamerOrderCreationServiceApplication in 0.56 seconds (process running for 0.749)
+2025-06-21T17:31:03.960+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-21T17:31:03.960+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-21T17:31:03.960+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-21T17:31:04.005+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] c.m.s.service.OrderEventProducer         : Publishing order: 1e450ac5-f0cf-48f8-be46-ec565dd04f91 to topic: orders-raw
+2025-06-21T17:31:04.015+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-creation-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 10
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 3
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2025-06-21T17:31:04.025+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T17:31:04.030+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-creation-service-producer-1] Instantiated an idempotent producer.
+2025-06-21T17:31:04.042+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T17:31:04.043+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T17:31:04.043+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750507264042
+2025-06-21T17:31:04.043+05:30 DEBUG 21382 --- [order-creation-service] [http-nio-8080-exec-1] o.s.k.core.DefaultKafkaProducerFactory   : Created new Producer: CloseSafeProducer [delegate=org.apache.kafka.clients.producer.KafkaProducer@7a5517d6]
+2025-06-21T17:31:04.142+05:30  INFO 21382 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=order-creation-service-producer-1] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21T17:31:04.143+05:30  INFO 21382 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=order-creation-service-producer-1] ProducerId set to 3 with epoch 0
+2025-06-21T17:31:04.177+05:30  INFO 21382 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: 1e450ac5-f0cf-48f8-be46-ec565dd04f91 to topic: orders-raw at offset: 7
+2025-06-21T17:32:14.827+05:30  INFO 21382 --- [order-creation-service] [http-nio-8080-exec-3] c.m.s.service.OrderEventProducer         : Publishing order: 1625592e-a8d9-4516-88ac-7a4b91d9f916 to topic: orders-raw
+2025-06-21T17:32:14.843+05:30  INFO 21382 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: 1625592e-a8d9-4516-88ac-7a4b91d9f916 to topic: orders-raw at offset: 8
+2025-06-21T17:34:28.032+05:30  INFO 21382 --- [order-creation-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-21T17:34:30.042+05:30  INFO 21382 --- [order-creation-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-21T17:34:30.045+05:30  INFO 21382 --- [order-creation-service] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-creation-service-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-06-21T17:34:30.049+05:30  INFO 21382 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T17:34:30.050+05:30  INFO 21382 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T17:34:30.050+05:30  INFO 21382 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T17:34:30.050+05:30  INFO 21382 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T17:34:30.050+05:30  INFO 21382 --- [order-creation-service] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for order-creation-service-producer-1 unregistered
+2025-06-21T17:58:25.734+05:30  INFO 24954 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Starting StreamerOrderCreationServiceApplication using Java 24 with PID 24954 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-creation-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer)
+2025-06-21T17:58:25.734+05:30 DEBUG 24954 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-21T17:58:25.735+05:30  INFO 24954 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-21T17:58:25.961+05:30  INFO 24954 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-21T17:58:25.966+05:30  INFO 24954 --- [order-creation-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-21T17:58:25.966+05:30  INFO 24954 --- [order-creation-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-21T17:58:25.977+05:30  INFO 24954 --- [order-creation-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-21T17:58:25.977+05:30  INFO 24954 --- [order-creation-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 230 ms
+2025-06-21T17:58:26.100+05:30  WARN 24954 --- [order-creation-service] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-06-21T17:58:26.104+05:30  INFO 24954 --- [order-creation-service] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-21T17:58:26.107+05:30 ERROR 24954 --- [order-creation-service] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-06-21T18:00:45.456+05:30  INFO 25344 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Starting StreamerOrderCreationServiceApplication using Java 24 with PID 25344 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-creation-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer)
+2025-06-21T18:00:45.457+05:30 DEBUG 25344 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-21T18:00:45.457+05:30  INFO 25344 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-21T18:00:45.698+05:30  INFO 25344 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-21T18:00:45.704+05:30  INFO 25344 --- [order-creation-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-21T18:00:45.704+05:30  INFO 25344 --- [order-creation-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-21T18:00:45.717+05:30  INFO 25344 --- [order-creation-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-21T18:00:45.717+05:30  INFO 25344 --- [order-creation-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 246 ms
+2025-06-21T18:00:45.843+05:30  INFO 25344 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-21T18:00:45.846+05:30  INFO 25344 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Started StreamerOrderCreationServiceApplication in 0.529 seconds (process running for 0.72)
+2025-06-21T18:02:57.715+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-21T18:02:57.715+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-21T18:02:57.716+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-21T18:02:57.755+05:30  WARN 25344 --- [order-creation-service] [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('\' (code 92)): was expecting double-quote to start field name]
+2025-06-21T18:03:27.978+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-2] c.m.s.service.OrderEventProducer         : Publishing order: 5ae44db8-d5e4-47ce-9d0d-4f99e1654013 to topic: orders-raw
+2025-06-21T18:03:27.993+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-2] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-creation-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 10
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 3
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2025-06-21T18:03:28.005+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-2] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T18:03:28.012+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-2] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-creation-service-producer-1] Instantiated an idempotent producer.
+2025-06-21T18:03:28.027+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T18:03:28.027+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T18:03:28.027+05:30  INFO 25344 --- [order-creation-service] [http-nio-8080-exec-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750509208026
+2025-06-21T18:03:28.027+05:30 DEBUG 25344 --- [order-creation-service] [http-nio-8080-exec-2] o.s.k.core.DefaultKafkaProducerFactory   : Created new Producer: CloseSafeProducer [delegate=org.apache.kafka.clients.producer.KafkaProducer@79a37ba1]
+2025-06-21T18:03:28.126+05:30  INFO 25344 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=order-creation-service-producer-1] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21T18:03:28.242+05:30  INFO 25344 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=order-creation-service-producer-1] ProducerId set to 1000 with epoch 0
+2025-06-21T18:03:28.276+05:30  INFO 25344 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: 5ae44db8-d5e4-47ce-9d0d-4f99e1654013 to topic: orders-raw at offset: 13
+2025-06-21T18:03:54.719+05:30  INFO 25344 --- [order-creation-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-21T18:03:56.727+05:30  INFO 25344 --- [order-creation-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-21T18:03:56.730+05:30  INFO 25344 --- [order-creation-service] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-creation-service-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-06-21T18:03:56.734+05:30  INFO 25344 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-21T18:03:56.735+05:30  INFO 25344 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-21T18:03:56.735+05:30  INFO 25344 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-21T18:03:56.735+05:30  INFO 25344 --- [order-creation-service] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-21T18:03:56.735+05:30  INFO 25344 --- [order-creation-service] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for order-creation-service-producer-1 unregistered
+2025-06-21T18:24:30.128+05:30  INFO 27196 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Starting StreamerOrderCreationServiceApplication using Java 24 with PID 27196 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-creation-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer)
+2025-06-21T18:24:30.129+05:30 DEBUG 27196 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-21T18:24:30.129+05:30  INFO 27196 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-21T18:24:30.366+05:30  INFO 27196 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-21T18:24:30.371+05:30  INFO 27196 --- [order-creation-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-21T18:24:30.371+05:30  INFO 27196 --- [order-creation-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-21T18:24:30.383+05:30  INFO 27196 --- [order-creation-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-21T18:24:30.384+05:30  INFO 27196 --- [order-creation-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 241 ms
+2025-06-21T18:24:30.515+05:30  INFO 27196 --- [order-creation-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-21T18:24:30.518+05:30  INFO 27196 --- [order-creation-service] [main] .StreamerOrderCreationServiceApplication : Started StreamerOrderCreationServiceApplication in 0.531 seconds (process running for 0.724)
+2025-06-21T18:26:20.440+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-21T18:26:20.441+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-21T18:26:20.442+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-21T18:26:20.480+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] c.m.s.service.OrderEventProducer         : Publishing order: 2b73abca-2af2-408b-b3e2-aa333041ffc9 to topic: orders-raw
+2025-06-21T18:26:20.489+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = order-creation-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 10
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 3
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2025-06-21T18:26:20.498+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-21T18:26:20.504+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=order-creation-service-producer-1] Instantiated an idempotent producer.
+2025-06-21T18:26:20.515+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-21T18:26:20.515+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-21T18:26:20.515+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750510580515
+2025-06-21T18:26:20.516+05:30 DEBUG 27196 --- [order-creation-service] [http-nio-8080-exec-1] o.s.k.core.DefaultKafkaProducerFactory   : Created new Producer: CloseSafeProducer [delegate=org.apache.kafka.clients.producer.KafkaProducer@4a84b11b]
+2025-06-21T18:26:20.606+05:30  INFO 27196 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=order-creation-service-producer-1] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-21T18:26:20.606+05:30  INFO 27196 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=order-creation-service-producer-1] ProducerId set to 1001 with epoch 0
+2025-06-21T18:26:20.637+05:30  INFO 27196 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: 2b73abca-2af2-408b-b3e2-aa333041ffc9 to topic: orders-raw at offset: 14
+2025-06-21T18:36:14.275+05:30  INFO 27196 --- [order-creation-service] [http-nio-8080-exec-3] c.m.s.service.OrderEventProducer         : Publishing order: 8b871ab5-dfb9-4216-918f-1a48089b5f74 to topic: orders-raw
+2025-06-21T18:36:14.300+05:30  INFO 27196 --- [order-creation-service] [kafka-producer-network-thread | order-creation-service-producer-1] c.m.s.service.OrderEventProducer         : Successfully published Order: 8b871ab5-dfb9-4216-918f-1a48089b5f74 to topic: orders-raw at offset: 15
+2025-06-21T18:41:28.432+05:30  INFO 27196 --- [order-creation-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete

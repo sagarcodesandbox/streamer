@@ -1,0 +1,633 @@
+2025-06-22T10:41:28.959+05:30  INFO 93577 --- [order-consumer-service] [main] amerOrderConsumerServiceApplicationTests : Starting StreamerOrderConsumerServiceApplicationTests using Java 24 with PID 93577 (started by sagar in /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service)
+2025-06-22T10:41:28.959+05:30 DEBUG 93577 --- [order-consumer-service] [main] amerOrderConsumerServiceApplicationTests : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-22T10:41:28.960+05:30  INFO 93577 --- [order-consumer-service] [main] amerOrderConsumerServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2025-06-22T10:41:29.157+05:30 DEBUG 93577 --- [order-consumer-service] [main] KafkaListenerAnnotationBeanPostProcessor : No retry topic configuration found for topics [orders-processed]
+2025-06-22T10:41:29.158+05:30 DEBUG 93577 --- [order-consumer-service] [main] KafkaListenerAnnotationBeanPostProcessor : 1 @KafkaListener methods processed on bean 'processedOrderConsumer': {public void com.mobox.streamerorderconsumerservice.consumer.ProcessedOrderConsumer.listenProcessedOrders(com.mobox.streamerorderconsumerservice.model.ProcessedOrder)=[@org.springframework.kafka.annotation.KafkaListener(topicPattern="", containerFactory="", beanRef="__listener", contentTypeConverter="", topics={"${app.kafka.topics.orders-processed}"}, groupId="${spring.kafka.consumer.group-id}", batch="", topicPartitions={}, clientIdPrefix="", splitIterables=true, concurrency="", autoStartup="", filter="", containerGroup="", idIsGroup=true, errorHandler="", id="", containerPostProcessor="", properties={}, info="")]}
+2025-06-22T10:41:29.315+05:30  INFO 93577 --- [order-consumer-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-order-notification-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = order-notification-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-06-22T10:41:29.326+05:30  INFO 93577 --- [order-consumer-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-22T10:41:29.405+05:30  INFO 93577 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-22T10:41:29.405+05:30  INFO 93577 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-22T10:41:29.405+05:30  INFO 93577 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750569089404
+2025-06-22T10:41:29.406+05:30  INFO 93577 --- [order-consumer-service] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Subscribed to topic(s): orders-processed
+2025-06-22T10:41:29.409+05:30 DEBUG 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:41:29.412+05:30  INFO 93577 --- [order-consumer-service] [main] amerOrderConsumerServiceApplicationTests : Started StreamerOrderConsumerServiceApplicationTests in 0.554 seconds (process running for 0.841)
+2025-06-22T10:41:29.528+05:30  WARN 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] The metadata response from the cluster reported a recoverable issue with correlation id 2 : {orders-processed=UNKNOWN_TOPIC_OR_PARTITION}
+2025-06-22T10:41:29.529+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-22T10:41:29.529+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-06-22T10:41:29.530+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-22T10:41:29.536+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: need to re-join with the given member-id: consumer-order-notification-group-1-bdd1c193-bfa8-4d59-a2aa-67d5328cdf2c
+2025-06-22T10:41:29.536+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-22T10:41:29.538+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-order-notification-group-1-bdd1c193-bfa8-4d59-a2aa-67d5328cdf2c', protocol='range'}
+2025-06-22T10:41:29.645+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Finished assignment for group at generation 1: {consumer-order-notification-group-1-bdd1c193-bfa8-4d59-a2aa-67d5328cdf2c=Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])}
+2025-06-22T10:41:29.654+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-order-notification-group-1-bdd1c193-bfa8-4d59-a2aa-67d5328cdf2c', protocol='range'}
+2025-06-22T10:41:29.654+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Notifying assignor about the new Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])
+2025-06-22T10:41:29.655+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Adding newly assigned partitions: orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-22T10:41:29.660+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-2
+2025-06-22T10:41:29.661+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-1
+2025-06-22T10:41:29.661+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-0
+2025-06-22T10:41:29.667+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T10:41:29.668+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T10:41:29.668+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T10:41:29.668+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: partitions assigned: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-22T10:41:29.725+05:30 DEBUG 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:41:29.725+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Revoke previously assigned partitions orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-22T10:41:29.725+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: partitions revoked: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-22T10:41:29.725+05:30 DEBUG 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:41:29.726+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Member consumer-order-notification-group-1-bdd1c193-bfa8-4d59-a2aa-67d5328cdf2c sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-06-22T10:41:29.726+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-22T10:41:29.726+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: consumer pro-actively leaving the group
+2025-06-22T10:41:29.726+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Unsubscribed all topics or patterns and assigned partitions
+2025-06-22T10:41:29.727+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-22T10:41:29.727+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: consumer pro-actively leaving the group
+2025-06-22T10:41:30.197+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.clients.FetchSessionHandler    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Node 1 sent an invalid full fetch response with extraIds=(bu-cvg5YRfyDtyrKQ0vgzw), response=()
+2025-06-22T10:41:30.198+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-22T10:41:30.198+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-22T10:41:30.199+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-22T10:41:30.199+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-22T10:41:30.203+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-order-notification-group-1 unregistered
+2025-06-22T10:41:30.203+05:30  INFO 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: Consumer stopped
+2025-06-22T10:41:30.204+05:30 DEBUG 93577 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : KafkaMessageListenerContainer [id=org.springframework.kafka.KafkaListenerEndpointContainer#0-0, clientIndex=-0, topicPartitions=[]] stopped normally
+2025-06-22T10:45:28.998+05:30  INFO 94035 --- [order-consumer-service] [main] .StreamerOrderConsumerServiceApplication : Starting StreamerOrderConsumerServiceApplication using Java 24 with PID 94035 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service)
+2025-06-22T10:45:28.999+05:30 DEBUG 94035 --- [order-consumer-service] [main] .StreamerOrderConsumerServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-22T10:45:28.999+05:30  INFO 94035 --- [order-consumer-service] [main] .StreamerOrderConsumerServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-22T10:45:29.222+05:30  INFO 94035 --- [order-consumer-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-06-22T10:45:29.227+05:30  INFO 94035 --- [order-consumer-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-22T10:45:29.227+05:30  INFO 94035 --- [order-consumer-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-22T10:45:29.241+05:30  INFO 94035 --- [order-consumer-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-22T10:45:29.241+05:30  INFO 94035 --- [order-consumer-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 226 ms
+2025-06-22T10:45:29.260+05:30 DEBUG 94035 --- [order-consumer-service] [main] KafkaListenerAnnotationBeanPostProcessor : No retry topic configuration found for topics [orders-processed]
+2025-06-22T10:45:29.261+05:30 DEBUG 94035 --- [order-consumer-service] [main] KafkaListenerAnnotationBeanPostProcessor : 1 @KafkaListener methods processed on bean 'processedOrderConsumer': {public void com.mobox.streamerorderconsumerservice.consumer.ProcessedOrderConsumer.listenProcessedOrders(com.mobox.streamerorderconsumerservice.model.ProcessedOrder)=[@org.springframework.kafka.annotation.KafkaListener(topicPattern="", contentTypeConverter="", containerFactory="", beanRef="__listener", topics={"${app.kafka.topics.orders-processed}"}, groupId="${spring.kafka.consumer.group-id}", batch="", topicPartitions={}, clientIdPrefix="", splitIterables=true, concurrency="", autoStartup="", filter="", containerGroup="", idIsGroup=true, errorHandler="", id="", containerPostProcessor="", properties={}, info="")]}
+2025-06-22T10:45:29.374+05:30  INFO 94035 --- [order-consumer-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-06-22T10:45:29.385+05:30  INFO 94035 --- [order-consumer-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-order-notification-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = order-notification-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-06-22T10:45:29.396+05:30  INFO 94035 --- [order-consumer-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-22T10:45:29.452+05:30  INFO 94035 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-22T10:45:29.453+05:30  INFO 94035 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-22T10:45:29.453+05:30  INFO 94035 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750569329452
+2025-06-22T10:45:29.454+05:30  INFO 94035 --- [order-consumer-service] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Subscribed to topic(s): orders-processed
+2025-06-22T10:45:29.458+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:45:29.461+05:30  INFO 94035 --- [order-consumer-service] [main] .StreamerOrderConsumerServiceApplication : Started StreamerOrderConsumerServiceApplication in 0.592 seconds (process running for 0.677)
+2025-06-22T10:45:29.560+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-22T10:45:29.561+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-06-22T10:45:29.561+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-22T10:45:29.568+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: need to re-join with the given member-id: consumer-order-notification-group-1-3c5c55e1-651d-424e-8f16-222318fd1487
+2025-06-22T10:45:29.568+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-22T10:45:29.570+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-order-notification-group-1-3c5c55e1-651d-424e-8f16-222318fd1487', protocol='range'}
+2025-06-22T10:45:29.571+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Finished assignment for group at generation 3: {consumer-order-notification-group-1-3c5c55e1-651d-424e-8f16-222318fd1487=Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])}
+2025-06-22T10:45:29.580+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully synced group in generation Generation{generationId=3, memberId='consumer-order-notification-group-1-3c5c55e1-651d-424e-8f16-222318fd1487', protocol='range'}
+2025-06-22T10:45:29.581+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Notifying assignor about the new Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])
+2025-06-22T10:45:29.581+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Adding newly assigned partitions: orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-22T10:45:29.584+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-2
+2025-06-22T10:45:29.584+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-1
+2025-06-22T10:45:29.584+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-0
+2025-06-22T10:45:29.590+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T10:45:29.590+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T10:45:29.590+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T10:45:29.590+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: partitions assigned: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-22T10:45:34.460+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:45:34.461+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:45:39.463+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:45:39.464+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:45:44.465+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:45:44.467+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:45:49.469+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:45:49.469+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:45:54.471+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:45:54.473+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:45:59.474+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:45:59.475+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:04.476+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:04.477+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:09.479+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:09.479+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:14.481+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:14.483+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:19.486+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:19.486+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:24.489+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:24.489+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:29.491+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:29.492+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:34.494+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:34.495+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:39.498+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:39.499+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:44.501+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:44.501+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:49.502+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:49.503+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:54.504+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:54.505+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:46:59.506+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:46:59.507+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:04.508+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:04.508+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:09.510+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:09.510+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:14.512+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:14.513+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:19.514+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:19.516+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:24.517+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:24.518+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:29.519+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:29.520+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:34.521+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:34.522+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:39.522+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:39.524+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:44.525+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:44.525+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:49.526+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:49.528+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:54.529+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:54.529+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:47:59.531+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:47:59.531+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:04.534+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:04.534+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:09.535+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:09.536+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:14.537+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:14.538+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:19.540+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:19.541+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:24.543+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:24.544+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:29.545+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:29.546+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:34.547+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:34.548+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:39.548+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:39.549+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:44.552+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:44.552+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:49.553+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:49.554+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:54.556+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:54.557+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:48:59.558+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:48:59.558+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:04.561+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:04.561+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:09.562+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:09.563+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:14.564+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:14.564+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:19.566+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:19.567+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:24.568+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:24.569+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:29.569+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:29.570+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:34.572+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:34.573+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:39.574+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:39.574+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:44.576+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:44.577+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:49.579+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:49.579+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:54.580+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:54.580+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:49:59.582+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:49:59.582+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:04.584+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:50:04.584+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:09.585+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:50:09.587+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:14.589+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:50:14.589+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:19.589+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:50:19.590+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:24.592+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:50:24.592+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:29.595+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T10:50:29.595+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:32.697+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:32.697+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Revoke previously assigned partitions orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-22T10:50:32.698+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: partitions revoked: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-22T10:50:32.698+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T10:50:32.698+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Member consumer-order-notification-group-1-3c5c55e1-651d-424e-8f16-222318fd1487 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-06-22T10:50:32.699+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-22T10:50:32.699+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: consumer pro-actively leaving the group
+2025-06-22T10:50:32.699+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Unsubscribed all topics or patterns and assigned partitions
+2025-06-22T10:50:32.700+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-22T10:50:32.700+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: consumer pro-actively leaving the group
+2025-06-22T10:50:32.731+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-22T10:50:32.731+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-22T10:50:32.732+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-22T10:50:32.732+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-22T10:50:32.736+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-order-notification-group-1 unregistered
+2025-06-22T10:50:32.737+05:30  INFO 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: Consumer stopped
+2025-06-22T10:50:32.737+05:30 DEBUG 94035 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : KafkaMessageListenerContainer [id=org.springframework.kafka.KafkaListenerEndpointContainer#0-0, clientIndex=-0, topicPartitions=[]] stopped normally
+2025-06-22T10:50:32.738+05:30  INFO 94035 --- [order-consumer-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-22T10:50:34.750+05:30  INFO 94035 --- [order-consumer-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-22T11:07:47.264+05:30  INFO 97410 --- [order-consumer-service] [main] .StreamerOrderConsumerServiceApplication : Starting StreamerOrderConsumerServiceApplication using Java 24 with PID 97410 (/Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service/target/classes started by sagar in /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service)
+2025-06-22T11:07:47.265+05:30 DEBUG 97410 --- [order-consumer-service] [main] .StreamerOrderConsumerServiceApplication : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-06-22T11:07:47.265+05:30  INFO 97410 --- [order-consumer-service] [main] .StreamerOrderConsumerServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-22T11:07:47.495+05:30  INFO 97410 --- [order-consumer-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-06-22T11:07:47.501+05:30  INFO 97410 --- [order-consumer-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-22T11:07:47.501+05:30  INFO 97410 --- [order-consumer-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-06-22T11:07:47.515+05:30  INFO 97410 --- [order-consumer-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-22T11:07:47.515+05:30  INFO 97410 --- [order-consumer-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 233 ms
+2025-06-22T11:07:47.534+05:30 DEBUG 97410 --- [order-consumer-service] [main] KafkaListenerAnnotationBeanPostProcessor : No retry topic configuration found for topics [orders-processed]
+2025-06-22T11:07:47.535+05:30 DEBUG 97410 --- [order-consumer-service] [main] KafkaListenerAnnotationBeanPostProcessor : 1 @KafkaListener methods processed on bean 'processedOrderConsumer': {public void com.mobox.streamerorderconsumerservice.consumer.ProcessedOrderConsumer.listenProcessedOrders(com.mobox.streamerorderconsumerservice.model.ProcessedOrder)=[@org.springframework.kafka.annotation.KafkaListener(topicPattern="", containerFactory="", beanRef="__listener", contentTypeConverter="", topics={"${app.kafka.topics.orders-processed}"}, groupId="${spring.kafka.consumer.group-id}", batch="", topicPartitions={}, clientIdPrefix="", splitIterables=true, concurrency="", autoStartup="", filter="", containerGroup="", idIsGroup=true, errorHandler="", id="", containerPostProcessor="", properties={}, info="")]}
+2025-06-22T11:07:47.650+05:30  INFO 97410 --- [order-consumer-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-06-22T11:07:47.661+05:30  INFO 97410 --- [order-consumer-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-order-notification-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = order-notification-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-06-22T11:07:47.671+05:30  INFO 97410 --- [order-consumer-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-06-22T11:07:47.729+05:30  INFO 97410 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-06-22T11:07:47.729+05:30  INFO 97410 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-06-22T11:07:47.729+05:30  INFO 97410 --- [order-consumer-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1750570667728
+2025-06-22T11:07:47.730+05:30  INFO 97410 --- [order-consumer-service] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Subscribed to topic(s): orders-processed
+2025-06-22T11:07:47.732+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:07:47.735+05:30  INFO 97410 --- [order-consumer-service] [main] .StreamerOrderConsumerServiceApplication : Started StreamerOrderConsumerServiceApplication in 0.607 seconds (process running for 0.693)
+2025-06-22T11:07:47.836+05:30  WARN 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] The metadata response from the cluster reported a recoverable issue with correlation id 2 : {orders-processed=UNKNOWN_TOPIC_OR_PARTITION}
+2025-06-22T11:07:47.836+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Cluster ID: hNlYf2QxS1aP3cR5tG7uZ9vB0dE4kF6j
+2025-06-22T11:07:47.836+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-06-22T11:07:47.837+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-22T11:07:47.842+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: need to re-join with the given member-id: consumer-order-notification-group-1-33b05976-5074-48d6-a399-2ce0c4ac4160
+2025-06-22T11:07:47.842+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] (Re-)joining group
+2025-06-22T11:07:47.844+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-order-notification-group-1-33b05976-5074-48d6-a399-2ce0c4ac4160', protocol='range'}
+2025-06-22T11:07:47.951+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Finished assignment for group at generation 1: {consumer-order-notification-group-1-33b05976-5074-48d6-a399-2ce0c4ac4160=Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])}
+2025-06-22T11:07:47.959+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-order-notification-group-1-33b05976-5074-48d6-a399-2ce0c4ac4160', protocol='range'}
+2025-06-22T11:07:47.960+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Notifying assignor about the new Assignment(partitions=[orders-processed-0, orders-processed-1, orders-processed-2])
+2025-06-22T11:07:47.961+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Adding newly assigned partitions: orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-22T11:07:47.969+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-2
+2025-06-22T11:07:47.969+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-1
+2025-06-22T11:07:47.969+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Found no committed offset for partition orders-processed-0
+2025-06-22T11:07:47.979+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T11:07:47.979+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T11:07:47.979+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting offset for partition orders-processed-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-22T11:07:47.979+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: partitions assigned: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-22T11:07:52.735+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:07:52.736+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:07:57.737+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:07:57.739+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:02.741+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:02.741+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:07.742+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:07.743+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:12.744+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:12.745+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:17.746+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:17.747+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:22.750+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:22.751+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:27.753+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:27.754+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:32.755+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:32.756+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:37.758+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:37.759+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:42.760+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:42.762+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:47.763+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:47.764+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:52.765+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:52.767+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:08:57.769+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:08:57.770+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:02.771+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:02.772+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:07.773+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:07.774+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:12.776+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:12.777+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:17.779+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:17.779+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:22.781+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:22.783+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:27.784+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:27.784+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:32.785+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:32.787+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:37.788+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:37.789+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:42.790+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:42.791+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:47.793+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:47.794+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:52.796+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:52.797+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:09:57.799+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:09:57.800+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:10:02.801+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:10:02.802+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:10:07.803+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Received: 0 records
+2025-06-22T11:10:07.804+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:10:10.574+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:10:10.574+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Revoke previously assigned partitions orders-processed-0, orders-processed-1, orders-processed-2
+2025-06-22T11:10:10.574+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: partitions revoked: [orders-processed-0, orders-processed-1, orders-processed-2]
+2025-06-22T11:10:10.574+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Commit list: {}
+2025-06-22T11:10:10.574+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Member consumer-order-notification-group-1-33b05976-5074-48d6-a399-2ce0c4ac4160 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-06-22T11:10:10.575+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-22T11:10:10.575+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: consumer pro-actively leaving the group
+2025-06-22T11:10:10.575+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Unsubscribed all topics or patterns and assigned partitions
+2025-06-22T11:10:10.576+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-22T11:10:10.576+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-notification-group-1, groupId=order-notification-group] Request joining group due to: consumer pro-actively leaving the group
+2025-06-22T11:10:10.940+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-06-22T11:10:10.941+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-22T11:10:10.941+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-22T11:10:10.941+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-06-22T11:10:10.950+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-order-notification-group-1 unregistered
+2025-06-22T11:10:10.951+05:30  INFO 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-notification-group: Consumer stopped
+2025-06-22T11:10:10.952+05:30 DEBUG 97410 --- [order-consumer-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : KafkaMessageListenerContainer [id=org.springframework.kafka.KafkaListenerEndpointContainer#0-0, clientIndex=-0, topicPartitions=[]] stopped normally
+2025-06-22T11:10:10.952+05:30  INFO 97410 --- [order-consumer-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-22T11:10:12.966+05:30  INFO 97410 --- [order-consumer-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

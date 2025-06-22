@@ -1,0 +1,15 @@
+Perfect! Here are the individual commands to run each service in IntelliJ-style log mode in separate terminals:
+
+Terminal 1 - Order Creation Service (Port 8080)
+cd /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-creation-service
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.output.ansi.enabled=ALWAYS -Dlogging.level.com.mobox=DEBUG"
+
+Terminal 2 - Order Processing Streams Service (Port 8081)
+cd /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-processing-streams-service
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.output.ansi.enabled=ALWAYS -Dlogging.level.com.mobox=DEBUG"
+
+Terminal 3 - Order Consumer Service (Port 8082)
+cd /Users/sagar/Projects/UltraProduction/Streamer/streamer-order-consumer-service
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.output.ansi.enabled=ALWAYS -Dlogging.level.com.mobox=DEBUG"
+
+Test Command (Use in a 4th terminal after all services start)
