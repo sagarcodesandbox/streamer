@@ -1,4 +1,6 @@
 package com.mobox.streamerorderprocessingstreamsservice.model;
 
-public record PersonsFavoriteColor() {
+public record PersonsFavoriteColor(
+        String myFavoriteColor
+) {
 }
