@@ -10,7 +10,8 @@ spring:
     streams:
       application-id: order-processing-app-id # Unique ID for this Kafka Streams app
       properties:
-        default.key.serde: org.apache.kafka.common.serialization.StringSerializer
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
         processing.guarantee: exactly_once_v2
         num.stream.threads: 1
         # Explicitly set the default value type for JSON deserializer within streams.

@@ -21,6 +21,7 @@ app:
     topics:
       orders-raw: orders-raw # Define topic name
       restaurant-orders-raw: restaurant-orders-raw # Define restaurant topic name
+      favorite-colors-raw: favorite-colors-raw  # ADD THIS LINE
 
 logging:
   level:
